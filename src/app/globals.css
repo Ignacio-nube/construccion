@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fbf9f8;
+  --foreground: #1b1c1c;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ── Animaciones globales ────────────────────────────── */
+@keyframes scale-in-bounce {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes draw-check {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marcador-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,80,10,0.45), 0 2px 8px rgba(232,80,10,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(232,80,10,0),  0 2px 8px rgba(232,80,10,0.4); }
+}
+@keyframes instruccion-fade-out {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+.anim-scale-bounce  { animation: scale-in-bounce 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards; }
+.anim-draw-check    { stroke-dasharray: 50; stroke-dashoffset: 50; animation: draw-check 0.4s 0.35s ease forwards; }
+.anim-fade-up       { opacity: 0; animation: fade-in-up 0.4s ease forwards; }
+.anim-fade-up-2     { opacity: 0; animation: fade-in-up 0.4s 0.15s ease forwards; }
+.anim-fade-up-3     { opacity: 0; animation: fade-in-up 0.4s 0.30s ease forwards; }
+.marcador-pulse     { animation: marcador-pulse 2s ease-in-out infinite; }
+.instruccion-toast  { animation: instruccion-fade-out 3.5s ease forwards; }
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .tectonic-shadow {
+    box-shadow: 0 24px 40px -10px rgba(27, 28, 28, 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .tectonic-shadow:hover {
+    box-shadow: 0 32px 48px -10px rgba(27, 28, 28, 0.10);
+  }
+
+  .tectonic-shadow-sm {
+    box-shadow: 0 12px 24px -6px rgba(27, 28, 28, 0.06);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .tectonic-shadow-sm:hover {
+    box-shadow: 0 20px 32px -8px rgba(27, 28, 28, 0.10);
+  }
+
+  .tonal-lift {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .tonal-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(27, 28, 28, 0.10);
+  }
+
+  .font-headline {
+    font-family: 'Epilogue', sans-serif;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #dfc0b2 transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #dfc0b2;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-container text-on-primary-container font-body font-bold px-8 py-4 text-sm uppercase tracking-widest transition-all duration-150;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary text-on-primary;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-outline-variant text-on-surface font-body font-bold px-8 py-4 text-sm uppercase tracking-widest bg-transparent transition-all duration-150;
+  }
+
+  .btn-secondary:hover {
+    @apply border-on-surface bg-on-surface text-surface;
+  }
+}
