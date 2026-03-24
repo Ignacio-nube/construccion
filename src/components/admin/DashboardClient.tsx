@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ShoppingBag, Calendar, TrendingUp, DollarSign } from 'lucide-react'
 import { formatPrecio, formatFecha } from '@/lib/utils/formato'
-import type { Pedido, EstadoPedido } from '@/types'
+import type { Pedido } from '@/types'
 import VentasChart from '@/components/admin/VentasChart'
 import Modal from '@/components/ui/Modal'
 

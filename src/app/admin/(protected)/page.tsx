@@ -1,8 +1,6 @@
 import { createServerClient } from '@/lib/insforge'
 import { getAccessToken } from '@/lib/auth-cookies'
-import { formatPrecio, formatFecha } from '@/lib/utils/formato'
 import type { Pedido } from '@/types'
-import VentasChart from '@/components/admin/VentasChart'
 import DashboardClient from '@/components/admin/DashboardClient'
 
 async function getDashboardData() {

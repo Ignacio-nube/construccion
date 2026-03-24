@@ -65,8 +65,8 @@ function StatusBadge({ pedido, onCambiar }: { pedido: Pedido; onCambiar: (id: st
   )
 }
 
-function PedidoModal({ pedido, onClose, onCambiarEstado }: {
-  pedido: Pedido; onClose: () => void; onCambiarEstado: (id: string, estado: EstadoPedido) => void
+function PedidoModal({ pedido, onClose }: {
+  pedido: Pedido; onClose: () => void
 }) {
   const cfg = ESTADO_CFG[pedido.estado] ?? ESTADO_CFG.pendiente
   const stepIdx = TIMELINE_STEPS.indexOf(pedido.estado)
@@ -233,7 +233,6 @@ export default function AdminPedidosPage() {
           <PedidoModal
             pedido={pedidoDetalle}
             onClose={() => setPedidoDetalle(null)}
-            onCambiarEstado={cambiarEstado}
           />
         )}
       </Modal>
